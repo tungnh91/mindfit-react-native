@@ -6,6 +6,7 @@ import com.facebook.react.ReactApplication;
 import com.brentvatne.react.ReactVideoPackage;
 import com.lwansbrough.RCTCamera.RCTCameraPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
+import com.auth0.lock.react.LockReactPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -29,6 +30,7 @@ public class MainApplication extends Application implements ReactApplication {
             new ReactVideoPackage(),
             new RCTCameraPackage(),
             new VectorIconsPackage()
+            new LockReactPackage()
       );
     }
   };
