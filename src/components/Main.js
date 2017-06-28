@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import TextEntry from './TextEntry.js';
 import EntryList from './EntryList.js';
-
+import Auth0Lock from 'react-native-lock';
 import {
   StyleSheet,
   Text,
@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 
 export default class Main extends Component {
+
   render() {
     return (
       <View>

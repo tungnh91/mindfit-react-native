@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux';
 import { fetchMediaUrl, fetchEntry } from '../actions/index';
 import EntryTextDisplay from './EntryTextDisplay';
 import axios from 'axios';
+import Auth0Lock from 'react-native-lock';
 
 import {
   StyleSheet,
@@ -13,7 +14,8 @@ import {
   Text,
   ScrollView,
   TouchableOpacity,
-  RefreshControl
+  RefreshControl,
+  AsyncStorage,
 } from 'react-native';
 
 class EntryList extends Component {
@@ -29,13 +31,16 @@ class EntryList extends Component {
     this.fetchData = this.fetchData.bind(this);
     this._onRefresh = this._onRefresh.bind(this);
     this._onfetchMediaUrl = this._onfetchMediaUrl.bind(this);
+    this.createLock = this.createLock.bind(this);
   }
 
   componentWillMount() {
+  this.createLock();
    this.fetchData();
   }
 
   fetchData() {
+    // console.log('gigigigigigigig', AsyncStorage)
     const data = {
       user_id: '58fa54a39011a00012a54936' //hardcoded
     };
@@ -85,6 +90,20 @@ class EntryList extends Component {
         <EntryTextDisplay entry={entry} />
       </TouchableOpacity>
     );
+  }
+
+  createLock() {
+    const lock = new Auth0Lock({clientId: '1zzC2JUKOcJPcIJTrt1vQ6YIC3BkWnhb', domain: 'tungnh91.auth0.com'});
+    lock.show({ 
+      connections: ["sms"] }, 
+      (err, profile, token) => {
+        if(err) {
+          console.log('err in createLock', err)
+        }
+      // console.log('profile====', profile);
+      // console.log('token====', token);
+      // console.log('Logged in!');
+    });
   }
 
   render() {

@@ -7,10 +7,6 @@ import {
   NavigatorIOS,
   View
 } from 'react-native';
-import React, {Component} from 'react';
-import {AppRegistry, Text, View} from 'react-native';
-
-import App from './app/components/App'
 
 export default class MindFit extends Component {
   render() {
@@ -30,13 +26,3 @@ const styles = StyleSheet.create({
 });
 
 AppRegistry.registerComponent('MindFit', () => MindFit);
-
-      <View>
-        <App />
-      </View>
-    )
-  }
-}
-
-AppRegistry.registerComponent('MindFit', ()=> MindFit)
->>>>>>> Auth0 lock
